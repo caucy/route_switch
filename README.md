@@ -20,14 +20,14 @@ deroute switch
 
 启动：
 
-    ​安装三方依赖 :
+    安装三方依赖 :
 pip install -r requirement.txt
 
-    ​启动：
+    启动：
 sh bin/engine.sh
 
 出现的问题：
-    ​1，手动干扰路由表，会导致del add 异常。
-    ​2，bind ip 优先级高于路由表指定rule ，更改table 出口网关，要使网卡ip不受table 规则影响，否则，出现用电信 ip  ping 出口网关指向移动 interface 将永远ping 不通。
-    ​3，如果只有三线地址，监控的table如果涵盖了三个接口到跳板机的规则，将有可能出现，三线路由都更改，导致跳板机登陆不上去的情况。
+    1，手动干扰路由表，会导致del add 异常。
+    2，bind ip 优先级高于路由表指定rule ，更改table 出口网关，要使网卡ip不受table 规则影响，否则，出现用电信 ip  ping 出口网关指向移动 interface 将永远ping 不通。
+    3，如果只有三线地址，监控的table如果涵盖了三个接口到跳板机的规则，将有可能出现，三线路由都更改，导致跳板机登陆不上去的情况。
     
