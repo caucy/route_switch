@@ -4,12 +4,12 @@ deroute switch
 
 需求：
 
-    ​三线服务器，当某条线路不可用的时候，这个线路出口的流量全部从其他可用出口出去。
+    三线服务器，当某条线路不可用的时候，这个线路出口的流量全部从其他可用出口出去。
 实现方式：
 
-    ​1，绑定 ip 去 ping 公网 ip ，类似 114.114.114.114 ，当某ip 丢包率达到阀值的时候去更改路由表出口网关。
+    1，绑定 ip 去 ping 公网 ip ，类似 114.114.114.114 ，当某ip 丢包率达到阀值的时候去更改路由表出口网关。
 
-    ​2，核心命令：
+    2，核心命令：
     ​    ​ping -i 0.2 -w 2 -c 10 -I bind_ip detect_ip 指定绑定 ip 去 ping。 
     ​    ​ip route add default via gate_ip dev gate_dev table n 新增 table n ,流量从gate_ip gate_dev 出去。
     ​    ​ip route del default via gate_ip dev gate_dev table n 删除 table n 的默认网关规则。
