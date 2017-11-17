@@ -108,11 +108,10 @@ def parse_ping_result(ip_map):
     cmd_format = "ping -i 0.2 -w 2 -c 10 -I {bind_ip} {detect_ip}"
     detect_dict = {}
     for bind_ip, table in ip_map.items():
-        success_nums, ping_cost = 0, 0
         for _d_ip in DETECT_LIST:
-            success_nums, ping_cost = check_ping(cmd_format.format(bind_ip=bind_ip, detect_ip=_d_ip))
-            success_nums += success_nums
-            ping_cost += ping_cost
+            success_tmp, cost_tmp = check_ping(cmd_format.format(bind_ip=bind_ip, detect_ip=_d_ip))
+            success_nums = success_nums + success_tmp
+            ping_cost = ping_cost + cost_tmp
         detect_dict[table] = [success_nums, ping_cost]
     return detect_dict
 
