@@ -2,9 +2,7 @@ certifi==2017.7.27.1
 chardet==3.0.4
 idna==2.6
 IPy==0.83
-requests==2.18.4
+requests>=2.18.4
 setproctitle==1.1.10
 simplejson==3.11.1
-urllib3==1.22
-
-
+urllib3>=1.22
